@@ -241,8 +241,8 @@ Not using FreeRTOS was a compromise between the system complexity versus its sta
 - Instead of using LEDs, we could use a relay module and mounting some real lamps.  
 - We could Implement more functionalities in the web server such as adding support to multiple clients using a network of esp32 cams. This will provide coverage to a higher range from different angles.  
 - A mobile application that reads the input from the webserver that connects multiple units of out system can be developed as well. 
-- Scheduling when the system should run and when it should stop is another funcionality we could add. We could use an RTC module's internal clock to check whether it falls within a range the user selects the system to run in or not which will give the system timekeeping functionality. The RTC module would have been connected to to the STM32 using I2C, and the user input for the time range would have beed fed to the system from the server and then using UART.
-- We could provide additional bluetooth communication between the ESP32 and the STM32 using the HC-05 bluetooth module.
+- Scheduling when the system should run and when it should stop is another funcionality we could add. We could use an RTC module's internal clock to check whether it falls within a range the user selects the system to run in or not which will give the system timekeeping functionality. The RTC module would have been connected to to the STM32 using I2C, and the user input for the time range would have been fed to the system from the server and then using UART.
+- We could provide additional Bluetooth communication between the ESP32 and the STM32 using the HC-05 bluetooth module.
 
 ## Challenges 
 
