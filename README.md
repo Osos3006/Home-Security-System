@@ -93,7 +93,7 @@ by a period of 3 seconds where the Sensor does not capture any motion. the senso
 * This function includes code that reads the output pin of the PIR sensor to detect whether there is motion or not. In case there is no motion detected, the buzzer and the LED are turned off. If, however, motion is detected, both are turned on, and a flag is sent to the ESP32-CAM to capture a picture every other small delay.
 
 - STM32CubeMX
-<img src="https://i.ibb.co/QPTvD25/CubeMX.png" width="500" height="400">
+<img src="https://github.com/Osos3006/Home-Security-System/blob/master/Images/STM%20system/CubeMX_Final.PNG" width="500" height="400">
 
 
 - Arduino IDE 
@@ -173,9 +173,9 @@ Not using FreeRTOS was a compromise between the system complexity versus its sta
 
 ## Circuit:
 
-<img src="https://i.ibb.co/MD0BL6w/c6088830-6e10-4474-b74d-573d65594590.jpg" width="500" height="400">
+<img src="https://github.com/Osos3006/Home-Security-System/blob/master/Images/STM%20system/Final%20system%20TOP.jpg" width="500" height="400">
 
-<img src="https://i.ibb.co/xqmX9h9/f1ff9324-0563-48ba-93b8-fefe3c2f806f.jpg" width="500" height="400">
+<img src="https://github.com/Osos3006/Home-Security-System/blob/master/Images/STM%20system/Final%20system%20side.jpg" width="500" height="400">
 
 * motion detected
 
@@ -196,6 +196,12 @@ Not using FreeRTOS was a compromise between the system complexity versus its sta
 <img src="https://i.ibb.co/rdrXRr6/connect-to-wifi-save-image.png" width="500" height="400">
 
 
+* Light ON/OFF , Buzzer ON/OFF
+
+
+<img src="https://github.com/Osos3006/Home-Security-System/blob/master/Images/webserver/ON_OFF.PNG" width="500" height="400">
+
+
 * Web Server preview 
 
 
@@ -205,6 +211,17 @@ Not using FreeRTOS was a compromise between the system complexity versus its sta
 
 
 <img src="https://i.ibb.co/CJfqmnv/room.png" width="500" height="400">
+
+
+* Web Server Secured 
+
+
+<img src="https://github.com/Osos3006/Home-Security-System/blob/master/Images/webserver/secure%20server.PNG" width="500" height="400">
+
+
+* Logging out page 
+
+<img src="https://github.com/Osos3006/Home-Security-System/blob/master/Images/webserver/logging_out.PNG" width="500" height="400">
 
 
 ## Limitations:
@@ -225,6 +242,8 @@ Not using FreeRTOS was a compromise between the system complexity versus its sta
 
 - The ESP32-CAM have no USB interface which made it difficult to program it, debug it and test the code on its own since the process of programming it includes connecting GPIO-0 and GND. then uploading the code while pressing reset in a specific point of time, then you have to disconnect the GPIO-0 and GND. Finally, you have to reset the system again in order for it to function. Moreover, the ESP32-CAM reset button is on the bottom of the board which made it not friendly for being fixated on the breadboard. hence, we depended on a primitive setup in order to fix the components for testing.
 
+- The ESP32-CAM has one UART for Debugging information and programming it using a USB-to-TTL module. It has another UART only which has only RX implemented which made it difficult to transmit information from the ESP32 to the STM32 using UART. hence, another solution was figured out which is bluetooth pairing using a BT module like : HC-05 as discussed in the future work.
+
 - This project was our third attempt for the semester since we had difficulties in the first attempt because the components were not available in Egypt and the second project idea was not feasible. hence, we were stressed in a very short time span to implement our project, test it and present it. 
 
 
@@ -236,8 +255,14 @@ Not using FreeRTOS was a compromise between the system complexity versus its sta
 - [ESP-CAM Web Server Interface](https://randomnerdtutorials.com/esp32-cam-take-photo-display-web-server/)
 
 
-## Presentation
+## Phase 1 Presentation
 [Presentation Video](https://drive.google.com/file/d/1TkcKbtvFDXxx2nX3FWF_YyAYJsaFXKdD/view?usp=sharing)
 
 
 [Slides](https://docs.google.com/presentation/d/1SmR-bazTPTJB2a8tqhuuUM6-uZVxIajpBRcfrtBjAu8/edit?usp=sharing)
+
+## Final Demo Presentation
+
+[Presentation Video](https://drive.google.com/file/d/1DP7ZXKHaYc8dApzmEjHeYnpTyuE7WUV4/view?usp=sharing)
+
+
