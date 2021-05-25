@@ -23,6 +23,7 @@
 #include "stm32l4xx_it.h"
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
+#include <stdbool.h>
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -56,7 +57,8 @@
 /* USER CODE END 0 */
 
 /* External variables --------------------------------------------------------*/
-
+extern UART_HandleTypeDef huart1;
+extern UART_HandleTypeDef huart2;
 /* USER CODE BEGIN EV */
 
 /* USER CODE END EV */
@@ -198,6 +200,60 @@ void SysTick_Handler(void)
 /* For the available peripheral interrupt handler names,                      */
 /* please refer to the startup file (startup_stm32l4xx.s).                    */
 /******************************************************************************/
+
+/**
+  * @brief This function handles USART1 global interrupt.
+  */
+void USART1_IRQHandler(void)
+{
+  /* USER CODE BEGIN USART1_IRQn 0 */
+
+		
+  /* USER CODE END USART1_IRQn 0 */
+  HAL_UART_IRQHandler(&huart1);
+  /* USER CODE BEGIN USART1_IRQn 1 */
+
+  /* USER CODE END USART1_IRQn 1 */
+}
+
+/**
+  * @brief This function handles USART2 global interrupt.
+  */
+void USART2_IRQHandler(void)
+{
+  /* USER CODE BEGIN USART2_IRQn 0 */
+uint8_t c;
+extern bool buzzer_ON ;
+extern bool lights_ON ;	
+	//int selection ;
+	HAL_UART_Receive(&huart2, &c, 1, HAL_MAX_DELAY);
+	HAL_UART_Transmit(&huart2, &c, 1, HAL_MAX_DELAY); // for debugging
+	if ( c == 'b' && buzzer_ON ) {
+		buzzer_ON = false;
+		HAL_UART_Transmit(&huart2, "\n\r BUZZER OFF\n\r", sizeof("\n\r BUZZER OFF\n\r"), HAL_MAX_DELAY); // for debugging
+	}
+	else 
+		if ( c=='b'){
+			buzzer_ON = true;
+					HAL_UART_Transmit(&huart2, "\n\r BUZZER ON\n\r", sizeof("\n\r BUZZER ON\n\r"), HAL_MAX_DELAY); // for debugging
+		}
+		
+		
+		if ( c == 'l' && lights_ON ){
+		lights_ON = false;
+					HAL_UART_Transmit(&huart2, "\n\r LIGHT OFF\n\r", sizeof("\n\r LIGHT OFF\n\r"), HAL_MAX_DELAY); // for debugging
+		}
+	else 
+		if ( c=='l'){
+					HAL_UART_Transmit(&huart2, "\n\r LIGHT ON\n\r", sizeof("\n\r LIGHT ON\n\r"), HAL_MAX_DELAY); // for debugging
+			lights_ON = true;
+		}
+  /* USER CODE END USART2_IRQn 0 */
+  HAL_UART_IRQHandler(&huart2);
+  /* USER CODE BEGIN USART2_IRQn 1 */
+
+  /* USER CODE END USART2_IRQn 1 */
+}
 
 /* USER CODE BEGIN 1 */
 

@@ -1,6 +1,7 @@
 #include "WiFi.h"
 #include "esp_camera.h"
 #include "esp_timer.h"
+#include <AsyncTCP.h>
 #include "img_converters.h"
 #include "Arduino.h"
 #include "soc/soc.h"           // Disable brownour problems
@@ -14,6 +15,9 @@
 // Replace with your network credentials
 const char* ssid = "Medo";
 const char* password = "osa12345";
+
+const char* http_username = "admin";
+const char* http_password = "1234";
 
 // Create AsyncWebServer object on port 80
 AsyncWebServer server(80);
@@ -60,6 +64,7 @@ const char index_html[] PROGMEM = R"rawliteral(
     <p>
       <button onclick="capturePhoto()">CAPTURE PHOTO</button>
       <button onclick="location.reload();">REFRESH PAGE</button>
+      <button onclick="logoutButton()">LOG OUT</button>
     </p>
   </div>
   <div><img src="saved-photo" id="photo" width="70%"></div>
@@ -71,8 +76,45 @@ const char index_html[] PROGMEM = R"rawliteral(
     xhr.open('GET', "/capture", true);
     xhr.send();
   }
+  setInterval(function() {
+  // Call a function repetatively with 2 Second interval
+  getData();
+}, 1000);
+  /*get image dynamically*/
+  function getData() {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      document.getElementById("photo").src =
+     "saved-photo";
+    }
+
+    
+  };
+  xhttp.open("GET", "/saved-photo", true);
+  xhttp.send();
+}
+  function logoutButton() {
+  var xhr = new XMLHttpRequest();
+  xhr.open("GET", "/logout", true);
+  xhr.send();
+  setTimeout(function(){ window.open("/logged-out","_self"); }, 1000);
+}
 </script>
 </html>)rawliteral";
+
+const char logout_html[] PROGMEM = R"rawliteral(
+<!DOCTYPE HTML><html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+  <p>Logged out or <a href="/">return to homepage</a>.</p>
+  <p><strong>Note:</strong> close all web browser tabs to complete the logout process.</p>
+</body>
+</html>
+)rawliteral";
+
   int capture = 0 ;
 void setup() {
   // Serial port for debugging purposes
@@ -155,6 +197,9 @@ void setup() {
 
   // Route for root / web page
   server.on("/", HTTP_GET, [](AsyncWebServerRequest * request) {
+    
+    if(!request->authenticate(http_username, http_password))
+      return request->requestAuthentication();
     request->send_P(200, "text/html", index_html);
   });
 
@@ -166,6 +211,14 @@ void setup() {
   server.on("/saved-photo", HTTP_GET, [](AsyncWebServerRequest * request) {
     request->send(SPIFFS, FILE_PHOTO, "image/jpg", false);
   });
+
+  server.on("/logout", HTTP_GET, [](AsyncWebServerRequest *request){
+  request->send(401);
+});
+
+  server.on("/logged-out", HTTP_GET, [](AsyncWebServerRequest *request){
+  request->send_P(200, "text/html", logout_html);
+});
 
   // Start server
   server.begin();

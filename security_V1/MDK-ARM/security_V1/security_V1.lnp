@@ -5,8 +5,6 @@
 "security_v1\stm32l4xx_hal_msp.o"
 "security_v1\stm32l4xx_hal_tim.o"
 "security_v1\stm32l4xx_hal_tim_ex.o"
-"security_v1\stm32l4xx_hal_uart.o"
-"security_v1\stm32l4xx_hal_uart_ex.o"
 "security_v1\stm32l4xx_hal.o"
 "security_v1\stm32l4xx_hal_i2c.o"
 "security_v1\stm32l4xx_hal_i2c_ex.o"
@@ -22,6 +20,8 @@
 "security_v1\stm32l4xx_hal_pwr_ex.o"
 "security_v1\stm32l4xx_hal_cortex.o"
 "security_v1\stm32l4xx_hal_exti.o"
+"security_v1\stm32l4xx_hal_uart.o"
+"security_v1\stm32l4xx_hal_uart_ex.o"
 "security_v1\system_stm32l4xx.o"
 --library_type=microlib --strict --scatter "security_V1\security_V1.sct"
 --summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
