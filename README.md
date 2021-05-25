@@ -203,7 +203,7 @@ Not using FreeRTOS was a compromise between the system complexity versus its sta
 <img src="https://github.com/Osos3006/Home-Security-System/blob/master/Images/webserver/ON_OFF.PNG" width="500" height="400">
 
 
-* Web Server preview 
+* Web Server preview (phase1)
 
 
 <img src="https://i.ibb.co/SQ0kfX7/Capture.png" width="500" height="400">
@@ -212,6 +212,10 @@ Not using FreeRTOS was a compromise between the system complexity versus its sta
 
 
 <img src="https://i.ibb.co/CJfqmnv/room.png" width="500" height="400">
+
+* Web Server Preview (Final)
+
+<img src="https://github.com/Osos3006/Home-Security-System/blob/master/Images/webserver/logout%20button.PNG" width="500" height="400">
 
 
 * Web Server Secured 
@@ -230,6 +234,7 @@ Not using FreeRTOS was a compromise between the system complexity versus its sta
 - Esp32 cam is limited to only one client.
 - We host the images on SPIFFS meaning that it stores a limited number of images, so in our project we only save one image at a time.
 - Images on the server are not automatically refreshed but we need to refresh it manually every time to get the latest captured photo.
+- For the User to turn Off or ON either the light or the Buzzer : He has to press 'l' for light and 'b' for Buzzer in a terminal connected to STM MCU through UART. This is going to be addressed in the future works.
 
 ## Future work:
 - To overcome the problem of SPIFFS, we could use the micro SD port in the ESP32 cam and store the images to it. This will give the room to store more images. 
@@ -264,6 +269,7 @@ Not using FreeRTOS was a compromise between the system complexity versus its sta
 
 ## Final Demo Presentation
 
-[Presentation Video](https://drive.google.com/file/d/1DP7ZXKHaYc8dApzmEjHeYnpTyuE7WUV4/view?usp=sharing)
+[Final Demo Presentation Video](https://drive.google.com/file/d/1DP7ZXKHaYc8dApzmEjHeYnpTyuE7WUV4/view?usp=sharing)
 
+[Slides](https://docs.google.com/presentation/d/1SmR-bazTPTJB2a8tqhuuUM6-uZVxIajpBRcfrtBjAu8/edit?usp=sharing)
 
