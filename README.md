@@ -265,11 +265,11 @@ Not using FreeRTOS was a compromise between the system complexity versus its sta
 [Presentation Video](https://drive.google.com/file/d/1TkcKbtvFDXxx2nX3FWF_YyAYJsaFXKdD/view?usp=sharing)
 
 
-[Slides](https://docs.google.com/presentation/d/1SmR-bazTPTJB2a8tqhuuUM6-uZVxIajpBRcfrtBjAu8/edit?usp=sharing)
+[Slides](https://docs.google.com/presentation/d/1SmR-bazTPTJB2a8tqhuuUM6-uZVxIajpBRcfrtBjAu8/edit#slide=id.g1f87997393_0_1544)
 
 ## Final Demo Presentation
 
 [Final Demo Presentation Video](https://drive.google.com/file/d/1DP7ZXKHaYc8dApzmEjHeYnpTyuE7WUV4/view?usp=sharing)
 
-[Slides](https://docs.google.com/presentation/d/1-mAV8R1xnsgdCC_5jdVkTzcj8KsvIuzWH_uqOgVHZxU/edit#slide=id.p)
+[Slides](https://docs.google.com/presentation/d/1-mAV8R1xnsgdCC_5jdVkTzcj8KsvIuzWH_uqOgVHZxU/edit#slide=id.gdccce0e770_0_455)
 
