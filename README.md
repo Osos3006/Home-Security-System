@@ -241,6 +241,8 @@ Not using FreeRTOS was a compromise between the system complexity versus its sta
 - Instead of using LEDs, we could use a relay module and mounting some real lamps.  
 - We could Implement more functionalities in the web server such as adding support to multiple clients using a network of esp32 cams. This will provide coverage to a higher range from different angles.  
 - A mobile application that reads the input from the webserver that connects multiple units of out system can be developed as well. 
+- Scheduling when the system should run and when it should stop is another funcionality we could add. We could use an RTC module's internal clock to check whether it falls within a range the user selects the system to run in or not which will give the system timekeeping functionality. The RTC module would have been connected to to the STM32 using I2C, and the user input for the time range would have beed fed to the system from the server and then using UART.
+- We could provide additional bluetooth communication between the ESP32 and the STM32 using the HC-05 bluetooth module.
 
 ## Challenges 
 
@@ -249,6 +251,8 @@ Not using FreeRTOS was a compromise between the system complexity versus its sta
 - The ESP32-CAM have no USB interface which made it difficult to program it, debug it and test the code on its own since the process of programming it includes connecting GPIO-0 and GND. then uploading the code while pressing reset in a specific point of time, then you have to disconnect the GPIO-0 and GND. Finally, you have to reset the system again in order for it to function. Moreover, the ESP32-CAM reset button is on the bottom of the board which made it not friendly for being fixated on the breadboard. hence, we depended on a primitive setup in order to fix the components for testing.
 
 - The ESP32-CAM has one UART for Debugging information and programming it using a USB-to-TTL module. It has another UART only which has only RX implemented which made it difficult to transmit information from the ESP32 to the STM32 using UART. hence, another solution was figured out which is bluetooth pairing using a BT module like : HC-05 as discussed in the future work.
+
+- The user input for turning on/off the light and the buzzer is fed to the system from the terminal be receiving either 'l' or 'b' instead of using a button on the webserver.
 
 - This project was our third attempt for the semester since we had difficulties in the first attempt because the components were not available in Egypt and the second project idea was not feasible. hence, we were stressed in a very short time span to implement our project, test it and present it. 
 
@@ -272,4 +276,3 @@ Not using FreeRTOS was a compromise between the system complexity versus its sta
 [Final Demo Presentation Video](https://drive.google.com/file/d/1DP7ZXKHaYc8dApzmEjHeYnpTyuE7WUV4/view?usp=sharing)
 
 [Slides](https://docs.google.com/presentation/d/1-mAV8R1xnsgdCC_5jdVkTzcj8KsvIuzWH_uqOgVHZxU/edit#slide=id.gdccce0e770_0_455)
-
