@@ -83,6 +83,7 @@ by a period of 3 seconds where the Sensor does not capture any motion. the senso
 ```Buzz()```:
 
 * This function turns the buzzer on and is triggered if the PIR sensor detects motion.
+* This function generates a standard alarm like sound using a PWM signal by varying the prescaler by iterating through i =  15 to 75 with a step of 3 and the prescaler is assigned 2i
   	
 ```Light()```:
 
